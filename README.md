@@ -38,9 +38,9 @@ func main () {
 }
 ```
 
-## Import
-```golang
-import "github.com/lukks/neural-go"
+## Install
+```
+go get github.com/lukks/neural-go
 ```
 
 ## Features
