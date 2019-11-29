@@ -62,33 +62,33 @@ type Neural struct
 #### Methods
 ```golang
 // low-level usage:
-func NewNeuron (maxInputs int) Neuron
-func (neuron *Neuron) Think (inputs []float64) float64
+func NewNeuron (maxInputs int) Neuron {}
+func (neuron *Neuron) Think (inputs []float64) float64 {}
 
-func NewLayer (maxNeurons int, maxInputs int) Layer
-func (layer *Layer) Think (inputs []float64) []float64
+func NewLayer (maxNeurons int, maxInputs int) Layer {}
+func (layer *Layer) Think (inputs []float64) []float64 {}
 
-func NewNeural (layers []Layer) Neural
-func (neural *Neural) ThinkRaw (inputs []float64) []float64
-func (neural *Neural) LearnRaw (inputs []float64, outputs []float64, rate float64) float64
+func NewNeural (layers []Layer) Neural {}
+func (neural *Neural) ThinkRaw (inputs []float64) []float64 {}
+func (neural *Neural) LearnRaw (inputs []float64, outputs []float64, rate float64) float64 {}
 
 // high-level usage:
-func NewInputLayer (maxInputs int, maxNeurons int) Layer
-func NewHiddenLayer (maxNeurons int) Layer
-func NewOutputLayer (maxNeurons int) Layer
-func (neural *Neural) InputRange (index int, min float64, max float64)
-func (neural *Neural) OutputRange (index int, min float64, max float64)
-func (neural *Neural) Think (inputs []float64) []float64
-func (neural *Neural) Learn (inputs []float64, outputs []float64, rate float64) float64
+func NewInputLayer (maxInputs int, maxNeurons int) Layer {}
+func NewHiddenLayer (maxNeurons int) Layer {}
+func NewOutputLayer (maxNeurons int) Layer {}
+func (neural *Neural) InputRange (index int, min float64, max float64) {}
+func (neural *Neural) OutputRange (index int, min float64, max float64) {}
+func (neural *Neural) Think (inputs []float64) []float64 {}
+func (neural *Neural) Learn (inputs []float64, outputs []float64, rate float64) float64 {}
 ```
 
 #### Missing
 Some methods that are not available yet:
 ```golang
-func (neural *Neural) Save ()
-func (neural *Neural) Load ()
-func (neural *Neural) Delete ()
-func (neural *Neural) Reset ()
+func (neural *Neural) Save () {}
+func (neural *Neural) Load () {}
+func (neural *Neural) Delete () {}
+func (neural *Neural) Reset () {}
 ```
 
 ## Examples
