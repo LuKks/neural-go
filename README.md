@@ -2,7 +2,7 @@
 
 Neural networks (deep feedforward)
 
-![](https://img.shields.io/github/go-mod/go-version/LuKks/neural-go) [![](https://img.shields.io/maintenance/yes/2019.svg?style=flat-square)](https://github.com/LuKks/neural-go) ![](https://img.shields.io/github/size/LuKks/neural-go/index.go.svg) ![](https://img.shields.io/github/downloads/LuKks/neural-go/total) ![](https://img.shields.io/github/license/LuKks/neural-go.svg)
+![](https://img.shields.io/github/v/release/LuKks/neural-go) [![](https://img.shields.io/maintenance/yes/2019.svg?style=flat-square)](https://github.com/LuKks/neural-go) ![](https://img.shields.io/github/size/LuKks/neural-go/index.go.svg) ![](https://img.shields.io/github/downloads/LuKks/neural-go/total) ![](https://img.shields.io/github/license/LuKks/neural-go.svg)
 
 ```golang
 package main
