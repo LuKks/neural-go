@@ -104,5 +104,8 @@ go run examples/full.go
 There are no tests yet
 ```
 
+## Issues
+Feedback, ideas, etc are very welcome so feel free to open an issue.
+
 ## License
 Code released under the [MIT License](https://github.com/LuKks/neural-go/blob/master/LICENSE).
