@@ -6,7 +6,7 @@ import (
   "crypto/rand"
 )
 
-// Set of weights + bias linked to a layer
+// Neuron is a set of weights + bias linked to a layer
 type Neuron struct {
   // Amount of weights
   MaxInputs int `json:"-"`
@@ -24,7 +24,7 @@ type Neuron struct {
   Inputs []float64 `json:"-"`
 }
 
-// Creates a neuron linked to a layer
+// NewNeuron creates a neuron linked to a layer
 func NewNeuron (Layer *Layer, MaxInputs int) *Neuron {
   neuron := &Neuron{
     MaxInputs: MaxInputs,
@@ -42,7 +42,7 @@ func NewNeuron (Layer *Layer, MaxInputs int) *Neuron {
   return neuron
 }
 
-// Process neuron forward based on inputs
+// Think process the neuron forward based on inputs
 func (neuron *Neuron) Think (inputs []float64) float64 {
   sum := neuron.Bias;
 
@@ -55,7 +55,7 @@ func (neuron *Neuron) Think (inputs []float64) float64 {
   return neuron.activation
 }
 
-// Learning optimizer by momentum
+// Optimizer learning by momentum
 func (neuron *Neuron) Optimizer (index int, value float64) float64 {
   neuron.Momentums[index] = value + (neuron.Layer.Momentum * neuron.Momentums[index])
   return neuron.Momentums[index]
@@ -89,19 +89,19 @@ func (neuron *Neuron) Mutate (probability float64) {
 }
 
 // Crossover two neurons merging weights and bias
-func (neuronA *Neuron) Crossover (neuronB Neuron, dominant float64) *Neuron {
-  new := NewNeuron(neuronA.Layer, neuronA.MaxInputs)
+func (neuron *Neuron) Crossover (neuronB Neuron, dominant float64) *Neuron {
+  new := NewNeuron(neuron.Layer, neuron.MaxInputs)
 
   for i := 0; i < new.MaxInputs; i++ {
     if cryptoRandomFloat() >= 0.5 {
-      new.Weights[i] = neuronA.Weights[i]
+      new.Weights[i] = neuron.Weights[i]
     } else {
       new.Weights[i] = neuronB.Weights[i]
     }
   }
 
   if cryptoRandomFloat() >= 0.5 {
-    new.Bias = neuronA.Bias
+    new.Bias = neuron.Bias
   } else {
     new.Bias = neuronB.Bias
   }

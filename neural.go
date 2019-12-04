@@ -166,13 +166,13 @@ func (neural *Neural) Mutate (probability float64) {
 }
 
 // Crossover two neurals merging layers
-func (neuralA *Neural) Crossover (neuralB *Neural, dominant float64) *Neural {
+func (neural *Neural) Crossover (neuralB *Neural, dominant float64) *Neural {
   new := NewNeural([]*Layer{})
-  new.MaxLayers = neuralA.MaxLayers
-  new.Layers = make([]*Layer, neuralA.MaxLayers)
+  new.MaxLayers = neural.MaxLayers
+  new.Layers = make([]*Layer, neural.MaxLayers)
 
-  for i := 0; i < neuralA.MaxLayers; i++ {
-    new.Layers[i] = neuralA.Layers[i].Crossover(neuralB.Layers[i], dominant)
+  for i := 0; i < neural.MaxLayers; i++ {
+    new.Layers[i] = neural.Layers[i].Crossover(neuralB.Layers[i], dominant)
   }
 
   return new
