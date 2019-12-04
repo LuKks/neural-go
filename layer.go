@@ -3,15 +3,15 @@ package neural
 // Layer is a set of neurons + config
 type Layer struct {
 	// Amount of inputs (default is previous layer units)
-	Inputs int `json:"-"`
-	Units int `json:"-"`
+	Inputs  int       `json:"-"`
+	Units   int       `json:"-"`
 	Neurons []*Neuron `json:"Neurons"`
 	// Default activation is sigmoid
-	Activation string `json:"Activation,omitempty"`
-	Forward ForwardFn `json:"-"`
-	Backward BackwardFn `json:"-"`
+	Activation string     `json:"Activation,omitempty"`
+	Forward    ForwardFn  `json:"-"`
+	Backward   BackwardFn `json:"-"`
 	// Default loss is mse
-	Loss string `json:"Loss,omitempty"`
+	Loss   string `json:"Loss,omitempty"`
 	LossFn LossFn `json:"-"`
 	// Default rate is 0.001
 	Rate float64 `json:"-"`
