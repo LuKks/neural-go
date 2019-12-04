@@ -58,7 +58,7 @@ func ReluBackward(activation float64) float64 {
 
 // ActivationSet is a forward and backward fn with its range
 type ActivationSet struct {
-	Forward ForwardFn
+	Forward  ForwardFn
 	Backward BackwardFn
 	// Range of the activation
 	Ranges []float64
