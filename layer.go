@@ -93,21 +93,21 @@ func (layer *Layer) Mutate (probability float64) {
 }
 
 // Crossover two layers merging neurons
-func (layerA *Layer) Crossover (layerB *Layer, dominant float64) *Layer {
+func (layer *Layer) Crossover (layerB *Layer, dominant float64) *Layer {
   new := NewLayer(&Layer{
-    Inputs: layerA.Inputs,
-    Units: layerA.Units,
-    Activation: layerA.Activation,
-    Rate: layerA.Rate,
-    Momentum: layerA.Momentum,
+    Inputs: layer.Inputs,
+    Units: layer.Units,
+    Activation: layer.Activation,
+    Rate: layer.Rate,
+    Momentum: layer.Momentum,
   })
 
-  for i := 0; i < layerA.Units; i++ {
-    new.Neurons[i] = layerA.Neurons[i].Crossover(*layerB.Neurons[i], dominant)
+  for i := 0; i < layer.Units; i++ {
+    new.Neurons[i] = layer.Neurons[i].Crossover(*layerB.Neurons[i], dominant)
   }
 
-  new.Range = make([][]float64, len(layerA.Range))
-  copy(new.Range, layerA.Range)
+  new.Range = make([][]float64, len(layer.Range))
+  copy(new.Range, layer.Range)
 
   return new
 }
