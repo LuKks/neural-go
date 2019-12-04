@@ -2,7 +2,7 @@
 
 Genetic Neural Networks
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/LuKks/neural-go)](https://goreportcard.com/report/github.com/LuKks/neural-go) ![](https://img.shields.io/github/v/release/LuKks/neural-go) [![](https://img.shields.io/maintenance/yes/2019.svg?style=flat-square)](https://github.com/LuKks/neural-go) [![GoDoc](https://godoc.org/github.com/LuKks/neural-go?status.svg)](https://godoc.org/github.com/LuKks/neural-go) ![](https://img.shields.io/github/license/LuKks/neural-go.svg)
+[![Go Report Card](https://goreportcard.com/badge/github.com/LuKks/neural-go)](https://goreportcard.com/report/github.com/LuKks/neural-go) ![](https://img.shields.io/github/v/release/LuKks/neural-go) [![GoDoc](https://godoc.org/github.com/LuKks/neural-go?status.svg)](https://godoc.org/github.com/LuKks/neural-go) ![](https://img.shields.io/github/license/LuKks/neural-go.svg)
 
 ```golang
 package main
