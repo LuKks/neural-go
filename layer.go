@@ -1,6 +1,6 @@
 package neural
 
-// Set of neurons + config
+// Layer is a set of neurons + config
 type Layer struct {
   // Amount of inputs (default is previous layer units)
   Inputs int `json:"-"`
@@ -26,7 +26,7 @@ type Layer struct {
   Range [][]float64 `json:"Range,omitempty"`
 }
 
-// Creates a layer based on simple layer definition
+// NewLayer creates a layer based on simple layer definition
 func NewLayer (layer *Layer) *Layer {
   if layer.Rate == 0.0 {
     layer.Rate = 0.001
@@ -54,7 +54,7 @@ func NewLayer (layer *Layer) *Layer {
   return layer
 }
 
-// Process layer forward based on inputs
+// Think process the layer forward based on inputs
 func (layer *Layer) Think (inputs []float64) []float64 {
   outs := make([]float64, layer.Units)
 
@@ -119,7 +119,7 @@ func (layer *Layer) Reset () {
   }
 }
 
-// Set or change activation functions based on name
+// SetActivation set or change the activation functions based on name
 func (layer *Layer) SetActivation (activation string) ActivationSet {
   set := selectActivation(activation)
   layer.Forward = set.Forward
