@@ -20,11 +20,12 @@ func main () {
   })
 
   for i := 0; i <= 5000; i++ {
-    loss := xor.Learn([]float64{0, 0}, []float64{0})
-    loss += xor.Learn([]float64{1, 0}, []float64{1})
-    loss += xor.Learn([]float64{0, 1}, []float64{1})
-    loss += xor.Learn([]float64{1, 1}, []float64{0})
-    loss /= 4;
+    loss := xor.Learns([][][]float64{
+      { {0, 0}, {0} },
+      { {1, 0}, {1} },
+      { {0, 1}, {1} },
+      { {1, 1}, {0} },
+    })
 
     if i % 1000 == 0 {
       fmt.Printf("iter %v, loss %f\n", i, loss)
