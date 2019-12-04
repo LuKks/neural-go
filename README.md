@@ -12,22 +12,22 @@ import (
   "github.com/lukks/neural-go"
 )
 
-func main () {
+func main() {
   xor := neural.NewNeural([]*neural.Layer{
-    { Inputs: 2, Units: 16 },
-    { Units: 16 },
-    { Units: 1 },
+    {Inputs: 2, Units: 16},
+    {Units: 16},
+    {Units: 1},
   })
 
   for i := 0; i <= 5000; i++ {
     loss := xor.Learns([][][]float64{
-      { {0, 0}, {0} },
-      { {1, 0}, {1} },
-      { {0, 1}, {1} },
-      { {1, 1}, {0} },
+      {{0, 0}, {0}},
+      {{1, 0}, {1}},
+      {{0, 1}, {1}},
+      {{1, 1}, {0}},
     })
 
-    if i % 1000 == 0 {
+    if i%1000 == 0 {
       fmt.Printf("iter %v, loss %f\n", i, loss)
     }
   }
