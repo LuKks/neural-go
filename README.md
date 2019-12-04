@@ -61,6 +61,7 @@ Set different activations, rates, momentums, etc at layer level.
 - Optimizer by Momentum
 - Loss: for output layer, only `mse` for now
 - Range: for input and output layer
+
 Check [examples/layers.go](https://github.com/LuKks/neural-go/blob/master/examples/layers.go) for complete example.
 
 #### Genetics
