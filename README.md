@@ -76,9 +76,9 @@ From my previous [neural-amxx](https://github.com/LuKks/neural-amxx).
 
 ## Examples
 Basic XOR [examples/xor.go](https://github.com/LuKks/neural-go/blob/master/examples/xor.go)\
-RGB brightness [examples/rgb.go](https://github.com/LuKks/neural-go/blob/master/examples/rgb.go)
-Genetics [examples/evolve.go](https://github.com/LuKks/neural-go/blob/master/examples/evolve.go)
-Layer configs [examples/layers.go](https://github.com/LuKks/neural-go/blob/master/examples/layers.go)
+RGB brightness [examples/rgb.go](https://github.com/LuKks/neural-go/blob/master/examples/rgb.go)\
+Genetics [examples/evolve.go](https://github.com/LuKks/neural-go/blob/master/examples/evolve.go)\
+Layer configs [examples/layers.go](https://github.com/LuKks/neural-go/blob/master/examples/layers.go)\
 Persist [examples/persist.go](https://github.com/LuKks/neural-go/blob/master/examples/persist.go)
 
 ```
