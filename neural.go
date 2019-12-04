@@ -10,11 +10,9 @@ import (
 
 // Neural is a set of layers
 type Neural struct {
-	// Max layers in neural
 	MaxLayers int `json:"-"`
-	// Slice of layers
 	Layers []*Layer `json:"Layers"`
-	// Average of loss (used in Learns and Evolve)
+	// Average of loss (used in Learns, LearnsRaw and Evolve)
 	Loss float64 `json:"-"`
 }
 

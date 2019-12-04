@@ -8,11 +8,8 @@ import (
 
 // Neuron is a set of weights + bias linked to a layer
 type Neuron struct {
-	// Amount of weights
 	MaxInputs int `json:"-"`
-	// Set of weights
-	Weights []float64 `json:"Weights"` // []*float64?
-	// Bias
+	Weights []float64 `json:"Weights"`
 	Bias float64 `json:"Bias"`
 	// Previous momentum of every weight and bias
 	Momentums []float64 `json:"-"`
