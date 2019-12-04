@@ -43,12 +43,12 @@ func NewLayer (layer *Layer) *Layer {
 
   activation := layer.SetActivation(layer.Activation)
 
-  if len(activation.ranges) == 0 {
+  if len(activation.Ranges) == 0 {
     layer.Range = [][]float64{}
   }
 
   for i, total := 0, len(layer.Range); i < total; i++ {
-    layer.Range[i] = append(layer.Range[i], activation.ranges[0], activation.ranges[1])
+    layer.Range[i] = append(layer.Range[i], activation.Ranges[0], activation.Ranges[1])
   }
 
   return layer
@@ -122,7 +122,7 @@ func (layer *Layer) Reset () {
 // Set or change activation functions based on name
 func (layer *Layer) SetActivation (activation string) ActivationSet {
   set := selectActivation(activation)
-  layer.Forward = set.forward
-  layer.Backward = set.backward
+  layer.Forward = set.Forward
+  layer.Backward = set.Backward
   return set
 }

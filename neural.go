@@ -67,7 +67,7 @@ func (neural *Neural) ThinkRaw (inputs []float64) []float64 {
   return outs
 }
 
-// Think arbitrary values by automatic convertion to raw values and vice versa for output
+// Think arbitrary values by automatic conversion to raw values and vice versa for output
 func (neural *Neural) Think (inputs []float64) []float64 {
   return neural.OutputValuesFromRaw(neural.ThinkRaw(neural.InputValuesToRaw(inputs)))
 }
@@ -117,7 +117,7 @@ func (neural *Neural) LearnsRaw (dataset [][][]float64) float64 {
   return neural.Loss
 }
 
-// Learn arbitrary values by automatic convertion to raw values
+// Learn arbitrary values by automatic conversion to raw values
 func (neural *Neural) Learn (inputs []float64, outputs []float64) float64 {
   return neural.LearnRaw(neural.InputValuesToRaw(inputs), neural.OutputValuesToRaw(outputs))
 }
