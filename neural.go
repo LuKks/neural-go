@@ -8,8 +8,9 @@ import (
   "os"
 )
 
-// Set of layers
+// Neural is a set of layers
 type Neural struct {
+  // Max layers in neural
   MaxLayers int `json:"-"`
   // Slice of layers
   Layers []*Layer `json:"Layers"`
@@ -17,7 +18,7 @@ type Neural struct {
   Loss float64 `json:"-"`
 }
 
-// Config for evolution process
+// Evolve is the config for evolution process
 type Evolve struct {
   Population int
   Mutate float64
@@ -30,7 +31,7 @@ type Evolve struct {
   Callback func (epoch int, loss float64) bool
 }
 
-// Creates a neural based on multiple layers
+// NewNeural creates a neural based on multiple layers
 func NewNeural (layers []*Layer) *Neural {
   fmt.Printf("")
 
@@ -55,7 +56,7 @@ func NewNeural (layers []*Layer) *Neural {
   return neural
 }
 
-// Process neural forward based on inputs and then based on output of previous layer 
+// ThinkRaw process the neural forward based on inputs and then based on output of previous layer 
 func (neural *Neural) ThinkRaw (inputs []float64) []float64 {
   outs := neural.Layers[0].Think(inputs)
 
@@ -71,7 +72,7 @@ func (neural *Neural) Think (inputs []float64) []float64 {
   return neural.OutputValuesFromRaw(neural.ThinkRaw(neural.InputValuesToRaw(inputs)))
 }
 
-// Neural backpropagation
+// LearnRaw uses backpropagation
 func (neural *Neural) LearnRaw (inputs []float64, outputs []float64) float64 {
   loss := 0.0
   outputLayer := neural.Layers[neural.MaxLayers - 1]
@@ -106,7 +107,7 @@ func (neural *Neural) LearnRaw (inputs []float64, outputs []float64) float64 {
   return loss / float64(outputLayer.Units)
 }
 
-// Shorcut to learn a raw dataset of inputs/outputs backed by LearnRaw method
+// LearnsRaw is a shorcut to learn a raw dataset of inputs/outputs backed by LearnRaw method
 func (neural *Neural) LearnsRaw (dataset [][][]float64) float64 {
   neural.Loss = 0.0
   for _, data := range dataset {
@@ -121,7 +122,7 @@ func (neural *Neural) Learn (inputs []float64, outputs []float64) float64 {
   return neural.LearnRaw(neural.InputValuesToRaw(inputs), neural.OutputValuesToRaw(outputs))
 }
 
-// Shorcut to learn dataset of arbitrary inputs/outputs backed by Learn method
+// Learns is a shorcut to learn dataset of arbitrary inputs/outputs backed by Learn method
 func (neural *Neural) Learns (dataset [][][]float64) float64 {
   neural.Loss = 0.0
   for _, data := range dataset {
@@ -177,6 +178,7 @@ func (neuralA *Neural) Crossover (neuralB *Neural, dominant float64) *Neural {
   return new
 }
 
+// Evolve uses Clone, Mutate, Learns and Crossover to create a evolutionary scenario
 func (neural *Neural) Evolve (evolve Evolve) *Neural {
   if evolve.Population == 0 {
     evolve.Population = 20
@@ -248,14 +250,14 @@ func (neural *Neural) Reset () {
   }
 }
 
-// set rate for all layers
+// Rate set the rate for all layers
 func (neural *Neural) Rate (value float64) {
   for i := 0; i < neural.MaxLayers; i++ {
     neural.Layers[i].Rate = value
   }
 }
 
-// set momentum for all layers
+// Momentum set the momentum for all layers
 func (neural *Neural) Momentum (value float64) {
   for i := 0; i < neural.MaxLayers; i++ {
     neural.Layers[i].Momentum = value
@@ -288,7 +290,7 @@ func (neural *Neural) Import (encoded []byte) error {
   return nil
 }
 
-// Export neural to file
+// ToFile export neural to file
 func (neural *Neural) ToFile (filename string) error {
   encoded, err := neural.Export()
   if err != nil {
@@ -297,7 +299,7 @@ func (neural *Neural) ToFile (filename string) error {
   return ioutil.WriteFile(filename, encoded, 0644)
 }
 
-// Import neural from file
+// FromFile import neural from file
 func (neural *Neural) FromFile (filename string) error {
   content, err := ioutil.ReadFile(filename)
   if err != nil {
@@ -306,12 +308,12 @@ func (neural *Neural) FromFile (filename string) error {
   return neural.Import(content)
 }
 
-// Delete neural file
+// DeleteFile is a shortcut to delete a file
 func (neural *Neural) DeleteFile (filename string) error {
   return os.Remove(filename)
 }
 
-// Convert arbitrary input values to raw (using layer range property)
+// InputValuesToRaw converts arbitrary input values to raw (using layer range property)
 func (neural *Neural) InputValuesToRaw (inputs []float64) []float64 {
   layer := neural.Layers[0]
   total := len(layer.Range)
@@ -326,7 +328,7 @@ func (neural *Neural) InputValuesToRaw (inputs []float64) []float64 {
   return raw
 }
 
-// Convert arbitrary output values to raw (using layer range property)
+// OutputValuesToRaw converts arbitrary output values to raw (using layer range property)
 func (neural *Neural) OutputValuesToRaw (outputs []float64) []float64 {
   layer := neural.Layers[neural.MaxLayers - 1]
   total := len(layer.Range)
@@ -341,7 +343,7 @@ func (neural *Neural) OutputValuesToRaw (outputs []float64) []float64 {
   return raw
 }
 
-// Convert raw output to arbitrary output values (using layer range property)
+// OutputValuesFromRaw converts raw output to arbitrary output values (using layer range property)
 func (neural *Neural) OutputValuesFromRaw (outputs []float64) []float64 {
   layer := neural.Layers[neural.MaxLayers - 1]
   total := len(layer.Range)
