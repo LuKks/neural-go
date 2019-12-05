@@ -2,7 +2,6 @@ package neural
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"os"
 	"sort"
@@ -31,8 +30,6 @@ type Evolve struct {
 
 // NewNeural creates a neural based on multiple layers
 func NewNeural(layers []*Layer) *Neural {
-	fmt.Printf("")
-
 	neural := &Neural{
 		MaxLayers: len(layers),
 		Layers:    make([]*Layer, len(layers)),

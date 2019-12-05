@@ -1,7 +1,6 @@
 package neural
 
 import (
-	// "fmt"
 	"crypto/rand"
 	"math/big"
 )
