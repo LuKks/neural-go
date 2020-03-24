@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/lukks/neural-go"
+	"github.com/lukks/neural-go/v3"
 )
 
 const fmtColor = "\033[0;36m%s\033[0m"

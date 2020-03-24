@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/lukks/neural-go"
+	"github.com/lukks/neural-go/v3"
 	"time"
 )
 
