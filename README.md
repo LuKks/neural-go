@@ -9,7 +9,7 @@ package main
 
 import (
   "fmt"
-  "github.com/lukks/neural-go"
+  "github.com/lukks/neural-go/v3"
 )
 
 func main() {
@@ -42,11 +42,11 @@ func main() {
 
 ## Install latest version
 ```
-go get github.com/lukks/neural-go
+go get github.com/lukks/neural-go/v3
 ```
 
-Also find versions on [releases](https://github.com/LuKks/neural-go/releases).\
-So you can stick with a specific version: `go get gopkg.in/lukks/neural-go.v2`
+Also find versions on [releases](https://github.com/LuKks/neural-go/releases).
+The changes from v2 to v3 were just for go mod versioning.
 
 ## Features
 #### Range
